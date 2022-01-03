@@ -1,9 +1,4 @@
-excercise#1:
-
-Based on the employees table below, select all fields from the employees table whose salary is
-less than or equal to $52,500(no sorting is required):
-
-use testdb1;
+use task;
 
 create table employees(employee_number int NOT NULL,
 last_name char(50) NOT NULL,
