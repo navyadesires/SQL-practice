@@ -1,9 +1,9 @@
 excercise 2:
+
 Based on the suppliers table below, select the unique city values that reside in the state of
 Califonia and order the results in descending order by city:
 
- select * from suppliers;
-
+select * from suppliers;
 
 supplier_id   supplier_name       city               state
 100	     Microsoft	         Redmond	    Washington
