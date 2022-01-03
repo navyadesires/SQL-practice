@@ -4,6 +4,24 @@ Based on the customers table and the order table below, select
 the customer_id and last_name from the customers table and select the order_date from
 the orders table where there is a matching customer_id value in both
 the customers and orders tables. Order the results  by customer_id in descending order.
+select * from customers;
+
+customer_id   last_name        first_name
+4000	     Jackson	        Joe	        techonthenet.com
+5000	     Smith	        Jane	        digminecraft.com
+6000	     Ferguson	        Samantha	bigactivities.com
+7000	     Reynolds    	Allen	        checkyourmath.com
+8000	     Anderson	        Paige	        NULL
+9000	     Johnson	        Derek	        techonthenet.com
+			
+select * from orders;
+order_id  customer_id    order_date
+1	   7000	          2016-04-18
+2	   5000	          2016-04-18
+3	   8000           2016-04-19
+4	   4000	          2016-04-20
+5	   NULL	          2016-05-01
+		
 
 SELECT customers.customer_id, customers.last_name, orders.order_date
 FROM customers 
