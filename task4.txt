@@ -1,0 +1,22 @@
+excecise 4:
+Based on the customers and order table from practice Excercise 3, select
+the customer_id and last_name from the customers table where there is a record in 
+the orders table for that customer_id. Order the results in ascending order by last_nae and then
+descending order byu customer_id.
+
+
+SELECT customer_id, last_name
+FROM customers
+WHERE EXISTS
+  ( SELECT orders.customer_id
+    FROM orders
+    WHERE orders.customer_id = customers.customer_id )
+ORDER BY last_name ASC, customer_id DESC;
+
+
+customer_id   last_name
+8000	      Anderson
+4000	      Jackson
+7000	      Reynolds
+5000	      Smith
+	

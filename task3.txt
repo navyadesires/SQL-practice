@@ -1,0 +1,18 @@
+excercise3:
+
+Based on the customers table and the order table below, select 
+the customer_id and last_name from the customers table and select the order_date from
+the orders table where there is a matching customer_id value in both
+the customers and orders tables. Order the results  by customer_id in descending order.
+
+SELECT customers.customer_id, customers.last_name, orders.order_date
+FROM customers 
+INNER JOIN orders
+ON customers.customer_id = orders.customer_id
+ORDER BY customers.customer_id DESC;
+ 
+customer_id  last_name   order_date
+8000	      Anderson	 2016-04-19
+7000	      Reynolds	 2016-04-18
+5000	      Smith	 2016-04-18
+4000	      Jackson	 2016-04-20
