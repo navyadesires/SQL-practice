@@ -1,4 +1,4 @@
-use testdb1;
+use task;
 
 CREATE TABLE suppliers
 ( supplier_id int NOT NULL,
@@ -44,7 +44,7 @@ INSERT INTO suppliers
 VALUES
 (900, 'Electronic Arts', 'Redwood City', 'California');
 
- select * from suppliers;
+select * from suppliers;
 
 			
 select distinct city from suppliers where state= 'California' order by city desc;
