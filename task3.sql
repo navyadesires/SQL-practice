@@ -1,4 +1,5 @@
-use testdb1;
+
+use task;
 
 CREATE TABLE customers
 ( customer_id int NOT NULL,
