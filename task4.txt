@@ -5,9 +5,8 @@ the orders table for that customer_id. Order the results in ascending order by l
 descending order byu customer_id.
 
 
-SELECT customer_id, last_name
-FROM customers
-WHERE EXISTS
+SELECT customer_id, last_name FROM customers WHERE 
+EXISTS
   ( SELECT orders.customer_id
     FROM orders
     WHERE orders.customer_id = customers.customer_id )
