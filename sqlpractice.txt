@@ -1,0 +1,227 @@
+
+create database testdb1;
+
+show databases;
+
+use testdb1;
+
+create table Workers(WORKER_ID int(10), FIRST_NAME varchar(20), LAST_NAME varchar(20), SALARY float(20), JOINING_DATE datetime, DEPARTMENT VARCHAR(20));
+desc Workers;
+
+insert into Workers values(8001, 'tripurana', 'Ramya', 100000, '2021-07-05 09:00:00', 'cloud');
+insert into Workers values(8002, 'pilli', 'Ram', 150000, '2019-07-25 10:00:00', 'ui-ux');
+insert into Workers values(8003, 'palli', 'Rama', 50000, '2009-08-15 07:00:00', 'ui-ux');
+insert into Workers values(8004, 'Vinai', 'Bhatiya', 580000, '2014-06-11 09:00:00', 'Admin');
+insert into Workers values(8005, 'Vip', 'Divid', 100000, '2010-06-11 09:00:00', 'Account');
+insert into Workers values(8006, 'vinai', 'Kumar', 75000, '2014-01-20 09:00:00', 'Account');
+insert into Workers values(8007, 'Gopika', 'Chauhan', 90000, '2014-04-11 09:00:00', 'Admin');
+
+select * from Workers;
+
+WORKER_ID	FIRST_NAME	LAST_NAME	SALARY	JOINING_DATE	DEPARTMENT
+
+	8001	tripurana	Ramya	100000	2021-07-05 09:00:00	cloud
+	8001	pilli        	Ram	150000	2019-07-25 10:00:00	ui-ux
+	8003	palli      	Rama	50000	2009-08-15 07:00:00	ui-ux
+	8004	Vinai   	Bhatiya	580000	2014-06-11 09:00:00	Admin
+	8005	Vip	        Divid	100000	2010-06-11 09:00:00	Account
+	8006	vinai	        Kumar	75000	2014-01-20 09:00:00	Account
+	8007	Gopika	        Chauhan	90000	2014-04-11 09:00:00	Admin
+
+create table Bonus(WORKER_REF_ID int(20), BONUS_DATE datetime, BONUS_AMOUNT float(20));
+
+insert into Bonus values(1, '2018-02-20 00:00:00', 5000);
+insert into Bonus values(2, '2018-06-11 00:00:00', 3000);
+insert into Bonus values(3, '2019-02-20 00:00:00', 1000);
+insert into Bonus values(1, '2019-02-20 00:00:00', 1500);
+insert into Bonus values(2, '2019-06-11 00:00:00', 2500);
+
+select * from Bonus;
+
+WORKER_REF_ID         BONUS_DATE            BONUS_AMOUNT
+    1	         2018-02-20 00:00:00	      5000
+    2	         2018-06-11 00:00:00	      3000
+    3	         2019-02-20 00:00:00	      1000
+    1	         2019-02-20 00:00:00	      1500
+    2	         2019-06-11 00:00:00	      2500
+
+create table refference(WORKER_REF_ID int(20), WORKER_TITLE varchar(20), AFFECTED_FROM datetime);
+
+desc refference;
+
+insert into refference values(1, 'Manager', '2016-02-20 00:00:00');
+insert into refference values(2, 'Executive', '2021-02-11 00:00:00');
+insert into refference values(8, 'Executive', '2016-08-11 00:00:00');
+insert into refference values(5, 'Manager', '2021-07-11 00:00:00');
+insert into refference values(7, 'Executive', '2016-08-11 00:00:00');
+insert into refference values(6, 'Lead', '2021-06-11 00:00:00');
+insert into refference values(3, 'TeamLead', '2021-06-11 00:00:00');
+
+select * from refference;
+
+WORKER_REF_ID   WORKER_TITLE    AFFECTED_FROM
+1	        Manager	        2016-02-20 00:00:00
+2	        Executive	2021-02-11 00:00:00
+8	        Executive	2016-08-11 00:00:00
+5	        Manager	        2021-07-11 00:00:00
+
+WORKER_REF_ID   WORKER_TITLE    AFFECTED_FROM
+1	        Manager  	2016-02-20 00:00:00
+8	        Executive	2016-08-11 00:00:00
+2	        Executive	2021-02-11 00:00:00
+5	        Manager	        2021-07-11 00:00:00
+
+
+WORKER_REF_ID	WORKER_TITLE	AFFECTED_FROM
+	2	Executive	2021-02-11 00:00:00
+	8	Executive	2016-08-11 00:00:00
+	1	Manager 	2016-02-20 00:00:00
+	5	Manager 	2021-07-11 00:00:00
+
+
+
+create new and table 
+=========================
+
+create table student(studentid varchar(20),studentname varchar(100),studentemail varchar(30), studentage int);
+     desc student;
+     alter table student add studentdob date;
+     desc student;
+
+-- add studentdob
+=============================   
+ alter table student add studentdob date;
+
+ desc student;
+
+ Field         Type            Null       Key  Default  Extra  
+  
+studentid	varchar(20)	YES			
+studentname	varchar(100)	YES			
+studentemail	varchar(30)	YES			
+studentage	int	        YES			
+studentdob	date	        YES
+
+  drop table student;
+
+
+-- studentis type is datetime
+======================================
+
+ alter table student add studentid datetime;
+
+ desc student;
+
+ Field         Type            Null       Key  Default  Extra 
+
+studentid	varchar(20)	YES	  NULL 		
+studentname	varchar(100)	YES	  NULL 		
+studentemail	varchar(30)	YES	  NULL 		
+studentage	int	        YES	  NULL 		
+studentdob	date     	YES	  NULL 		
+studentjd	datetime	YES	  NULL 			
+
+-- studentmarks float type
+===================================		
+alter table student add studentmarks float;
+
+desc student;
+ Field         Type             Null       Key  Default  Extra
+studentid	varchar(20)	YES	   NULL 		
+studentname	varchar(100)	YES	   NULL 		
+studentemail	varchar(30)	YES	   NULL 		
+studentage	int	        YES	   NULL 		
+studentdob	date	        YES	   NULL 		
+studentjd	datetime	YES	   NULL 		
+studentmarks	float     	YES	   NULL 
+
+alter table student add studentmarks float;
+desc student;
+
+ Field         Type          Null       Key  Default  Extra 
+ studentid     varchar(20)   YES        NULL          
+ studentname  varchar(100)   YES        NULL     
+ studentemail varchar(30)    YES        NULL    
+ studentage    int           YES        NULL    
+ studentdob    date          YES        NULL    
+ studentjd     datetime      YES 	NULL
+ studentmarks  float         YES        NULL   
+
+alter table student drop studentmarks;
+desc student;
+
+ Field        Type          Null         Key  Default  Extra 
+
+ studentid     varchar(20)   YES        NULL          
+ studentname  varchar(100)   YES        NULL     
+ studentemail varchar(30)    YES        NULL    
+ studentage    int           YES        NULL    
+ studentdob    date          YES        NULL    
+ studentid     datetime      YES 	NULL	
+
+alter table student add studentmarks float, add studentgrade char(3);
+ desc student;
+
+alter table course modify coursename varchar(20) not null unique;
+desc course;
+
+Field            type        Null    key     default  extra
+coursename	varchar(20)  NO	     UNI     NULL	
+courseid	int	     NO	     PRI     NULL
+	
+alter table course add column courseduration int;
+desc course;
+ 
+Field            type        Null    key     default  extra
+coursename	varchar(20)  NO	     UNI     NULL	
+courseid	int	     NO	     PRI     NULL		
+courseduration	int	     YES 	     NULL	
+
+-- create table the constraint and constraint name
+create table instructor(instructorid int,
+						instructorname varchar(50) ,
+                        constraint cns_name unique(instructorname));
+
+-- describe
+desc instructor;
+
+Field            type           Null    key     default  extra
+instructorid	int	        YES			
+instructorname	varchar(50)	YES	UNI	
+
+-- create a database
+create database demo1;
+
+-- create a table in above database
+
+use demo1;
+
+create table sample(sampleid int,samplename varchar(32));
+
+desc sample;
+
+Field           type           Null    key     default  extra
+sampleid	int	        YES			
+samplename	varchar(32)	YES	
+
+# drop a database
+
+drop database demo1;
+table with dbengines.sql:
+==============================
+use moritech;
+
+drop table instructordetails;
+
+-- creating table using specific engine type
+
+create table instructordetails
+(instr_details_id int,instr_id int,specialization varchar(20))
+engine=MyISAM;
+
+desc instructordetails;
+
+Field                  type           Null    key     default  extra
+instr_details_id	int	      YES			
+instr_id	        int	       YES			
+specialization	        varchar(20)    YES							
