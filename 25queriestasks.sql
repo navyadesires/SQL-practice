@@ -84,3 +84,21 @@ select customerid, order_date, item from items_ordered where item not in ('Snow 
 # 20. Select the item and price of all items that start with the letters 'S', 'P', or 'F'.
 select item, price from items_ordered where item like 'S%' or 
     item like 'P%' or item like 'F%';
+# 21. Select the date, item, and price from the items_ordered table for all of the rows that have a price value ranging from 10.00 to 80.00.
+select order_date, item, price from items_ordered where price between 10 and 80;
+
+# 22. Select the firstname, city, and state from the customers table for all of the rows where the state value is either: 
+# Arizona, Washington, Oklahoma, Colorado, or Hawaii.
+select firstname, city, state from customers where state in ('Arizona', 'Washington', 'Oklahoma', 'Colorado', 'Hawaii');
+
+# 23. Select the item and per unit price for each item in the items_ordered table. Hint: Divide the price by the quantity.
+select item, (price / quantity) unit_price from items_ordered;
+
+# 24. Write a query using a join to determine which items were ordered by each of the customers in the customers table. 
+# Select the customerid, firstname, lastname, order_date, item, and price for everything each customer purchased in the items_ordered table.
+select customers.customerid, customers.firstname, customers.lastname, 
+	items_ordered.order_date, items_ordered.item, items_ordered.price 
+from customers join items_ordered where customers.customerid = items_ordered.customerid;
+
+# 25. Repeat exercise #1, however display the results sorted by item in descending order.
+select customerid, item, price from items_ordered where customerid = 10449 order by item desc;
