@@ -1,0 +1,46 @@
+-- -- correlated subquery example
+create table payments(paymentId int primary key auto_increment,
+						customerId int,
+                        chequeNumber int,
+                        amount float);
+ 
+insert into payments(customerId,chequeNumber,amount) 
+			values (123,5670089,56000.00),
+					(123,5670095,16000.00),
+                    (125,5670098,10000.00),
+					(126,5670100,12000.00);
+--  find the customer who made maximum payment 
+
+ select customerId,chequeNumber,amount 
+from 	payments where 
+		amount = (select MAX(amount) from payments)
+  
+customerID chequeNUmber amount
+123	5670089	56000  
+
+-- find the customer payment details whose payment is greater than minimum payment
+
+select customerId,chequeNumber,amount 
+from 
+		payments
+where 
+		amount > (select MIN(amount) from payments);
+
+customerID chequeNUmber amount
+123	    5670089	56000
+123	    5670095	16000
+126	    5670100	12000
+
+
+
+-- find the customer payment details whose payment is greater than average of all payments
+
+select customerId,chequeNumber,amount 
+from payments where amount > (select AVG(amount) from payments);
+
+customerID chequeNUmber amount
+123	    5670089	56000
+
+
+
+                  
